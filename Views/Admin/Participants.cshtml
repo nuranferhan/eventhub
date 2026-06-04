@@ -1,7 +1,7 @@
 @model List<EventHub.ViewModels.ParticipantViewModel>
 @using EventHub.Models
 @{
-    ViewData["Title"] = "Katilimci Listesi";
+    ViewData["Title"] = "Katılımcı Listesi";
     var eventTitle = ViewBag.EventTitle as string ?? "Etkinlik";
     var eventId = (int)(ViewBag.EventId ?? 0);
 }
@@ -11,9 +11,9 @@
         <ul class="breadcrumb-custom">
             <li><a asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
             <li><a asp-controller="Admin" asp-action="Events">Admin - Etkinlikler</a></li>
-            <li>Katilimcilar</li>
+            <li>Katılımcılar</li>
         </ul>
-        <h1 class="page-header-title">Katilimci Listesi</h1>
+        <h1 class="page-header-title">Katılımcı Listesi</h1>
         <p class="page-header-subtitle">@eventTitle</p>
     </div>
 </div>
@@ -21,14 +21,13 @@
 <section class="section-gap-sm">
     <div class="container">
 
-        <!-- Ozet -->
         <div class="row g-3 mb-4">
             <div class="col-md-3">
                 <div class="admin-stat-card animate-on-scroll">
                     <div class="admin-stat-icon orange"><i class="bi bi-people"></i></div>
                     <div>
                         <div class="admin-stat-value">@Model.Count</div>
-                        <div class="admin-stat-label">Toplam Kayitli</div>
+                        <div class="admin-stat-label">Toplam Kayıtlı</div>
                     </div>
                 </div>
             </div>
@@ -37,17 +36,16 @@
                     <div class="admin-stat-icon green"><i class="bi bi-check-circle"></i></div>
                     <div>
                         <div class="admin-stat-value">@Model.Count(p => p.AttendanceConfirmed)</div>
-                        <div class="admin-stat-label">Katilim Onayli</div>
+                        <div class="admin-stat-label">Katılım Onaylı</div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Geri Butonu ve Export -->
         <div class="d-flex justify-content-between align-items-center mb-3 animate-on-scroll">
             <a asp-controller="Event" asp-action="Detail" asp-route-id="@eventId"
                class="btn-ghost btn-sm">
-                <i class="bi bi-arrow-left"></i> Etkinlige Don
+                <i class="bi bi-arrow-left"></i> Etkinliğe Dön
             </a>
             <div class="d-flex align-items-center gap-2 flex-wrap">
                 <a asp-controller="Admin" asp-action="ExportParticipantsExcel" asp-route-eventId="@eventId"
@@ -59,12 +57,11 @@
                     <i class="bi bi-file-earmark-pdf"></i> PDF
                 </a>
                 <div style="font-size:0.85rem;color:var(--text-muted);margin-left:0.5rem;">
-                    @Model.Count kisi kayitli
+                    @Model.Count kişi kayıtlı
                 </div>
             </div>
         </div>
 
-        <!-- Katilimci Tablosu -->
         <div class="card-base animate-on-scroll" style="padding:0;overflow:hidden;">
             @if (Model.Any())
             {
@@ -75,11 +72,11 @@
                                 <th>#</th>
                                 <th>Ad Soyad</th>
                                 <th>E-posta</th>
-                                <th>Kayit Tarihi</th>
+                                <th>Kayıt Tarihi</th>
                                 <th>Durum</th>
-                                <th>Katilim</th>
+                                <th>Katılım</th>
                                 <th>Not</th>
-                                <th>Islem</th>
+                                <th>İşlem</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -105,7 +102,7 @@
                                                 <span class="status-badge status-draft">Beklemede</span>
                                                 break;
                                             default:
-                                                <span class="status-badge status-cancelled">Iptal</span>
+                                                <span class="status-badge status-cancelled">İptal</span>
                                                 break;
                                         }
                                     </td>
@@ -113,7 +110,7 @@
                                         @if (p.AttendanceConfirmed)
                                         {
                                             <span class="badge-registered">
-                                                <i class="bi bi-check-circle-fill"></i> Katildi
+                                                <i class="bi bi-check-circle-fill"></i> Katıldı
                                             </span>
                                         }
                                         else
@@ -133,7 +130,7 @@
                                             <input type="hidden" name="eventId" value="@eventId" />
                                             <button type="submit"
                                                     class="@(p.AttendanceConfirmed ? "btn-danger-soft" : "btn-success-soft") btn-sm"
-                                                    title="@(p.AttendanceConfirmed ? "Katilimi Kaldir" : "Katilim Onayla")">
+                                                    title="@(p.AttendanceConfirmed ? "Katılımı Kaldır" : "Katılımı Onayla")">
                                                 <i class="bi bi-@(p.AttendanceConfirmed ? "x-circle" : "check-circle")"></i>
                                             </button>
                                         </form>
@@ -149,8 +146,8 @@
             {
                 <div class="empty-state">
                     <div class="empty-state-icon"><i class="bi bi-people"></i></div>
-                    <h3 class="empty-state-title">Katilimci Yok</h3>
-                    <p style="font-size:0.9rem;">Bu etkinlige henuz kayit yapilmamis.</p>
+                    <h3 class="empty-state-title">Katılımcı Yok</h3>
+                    <p style="font-size:0.9rem;">Bu etkinlikliğe henüz kayıt yapılmamış.</p>
                 </div>
             }
         </div>
