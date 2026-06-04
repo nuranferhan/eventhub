@@ -49,6 +49,7 @@ namespace EventHub.Models
 
     public enum NotificationType
     {
+        [Display(Name = "Yedek Listesinden Davet")]
         WaitlistPromotion = 1
     }
 }
