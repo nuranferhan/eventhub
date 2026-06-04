@@ -1,15 +1,15 @@
 @{
-    ViewData["Title"] = "Iletisim";
+    ViewData["Title"] = "İletişim";
 }
 
 <div class="page-header">
     <div class="container">
         <ul class="breadcrumb-custom">
             <li><a asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
-            <li>Iletisim</li>
+            <li>İletişim</li>
         </ul>
-        <h1 class="page-header-title">Iletisim</h1>
-        <p class="page-header-subtitle">Sorulariniz icin bize ulasın.</p>
+        <h1 class="page-header-title">İletişim</h1>
+        <p class="page-header-subtitle">Sorularınız için bize ulaşın.</p>
     </div>
 </div>
 
@@ -19,10 +19,10 @@
             <div class="col-lg-5">
                 <div class="card-base animate-on-scroll">
                     <h4 style="font-family:'Fraunces',serif;margin-bottom:1.5rem;color:var(--text-primary);">
-                        Mesaj Gonder
+                        Mesaj Gönder
                     </h4>
                     <div class="form-group">
-                        <label class="form-label-custom">Adiniz Soyadiniz</label>
+                        <label class="form-label-custom">Adınız Soyadınız</label>
                         <input type="text" class="form-control-custom" placeholder="Ad Soyad" />
                     </div>
                     <div class="form-group">
@@ -31,28 +31,28 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label-custom">Konu</label>
-                        <input type="text" class="form-control-custom" placeholder="Konu basligı" />
+                        <input type="text" class="form-control-custom" placeholder="Konu başlığı" />
                     </div>
                     <div class="form-group">
                         <label class="form-label-custom">Mesajınız</label>
-                        <textarea class="form-control-custom" rows="5" placeholder="Mesajinizi yazin..." style="resize:none;"></textarea>
+                        <textarea class="form-control-custom" rows="5" placeholder="Mesajınızı yazın..." style="resize:none;"></textarea>
                     </div>
-                    <button class="btn-brand w-100" style="justify-content:center;" onclick="showToast('Mesajiniz alindi! En kisa surede donecegiz.','success');return false;">
-                        <i class="bi bi-send"></i> Gonder
+                    <button class="btn-brand w-100" style="justify-content:center;" onclick="showToast('Mesajınız alındı! En kısa sürede döneceğiz.','success');return false;">
+                        <i class="bi bi-send"></i> Gönder
                     </button>
                 </div>
             </div>
             <div class="col-lg-4">
                 <div class="card-base animate-on-scroll delay-200">
                     <h4 style="font-family:'Fraunces',serif;margin-bottom:1.5rem;color:var(--text-primary);">
-                        Iletisim Bilgileri
+                        İletişim Bilgileri
                     </h4>
                     @{
                         var contacts = new[]
                         {
                             new { Icon = "bi-envelope", Label = "E-posta", Value = "info@eventhub.com" },
-                            new { Icon = "bi-geo-alt", Label = "Adres", Value = "Istanbul, Turkiye" },
-                            new { Icon = "bi-clock", Label = "Calisma Saatleri", Value = "Pazartesi - Cuma, 09:00-18:00" }
+                            new { Icon = "bi-geo-alt", Label = "Adres", Value = "İstanbul, Türkiye" },
+                            new { Icon = "bi-clock", Label = "Çalışma Saatleri", Value = "Pazartesi - Cuma, 09:00-18:00" }
                         };
                     }
                     @foreach (var c in contacts)
