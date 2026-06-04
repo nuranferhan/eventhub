@@ -2,8 +2,6 @@
 
 | ASP.NET Core 8 MVC 
 
-**Canlı Önizleme:** [Site Linki](https://eventhub-6n0h.onrender.com)
-
 ---
 
 ## Proje Özeti
