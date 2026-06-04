@@ -5,7 +5,7 @@ namespace EventHub.Models
 {
     /// <summary>
     /// Kullanici - Etkinlik iliskilesini temsil eden kayit modeli.
-    /// Bir kullanicinin bir etkinlige katilim talebini ve durumunu tutar.
+    /// Bir kullanicinin bir etkinlikge katilim talebini ve durumunu tutar.
     /// </summary>
     public class EventRegistration
     {
@@ -28,12 +28,12 @@ namespace EventHub.Models
         public RegistrationStatus Status { get; set; } = RegistrationStatus.Confirmed;
 
         // Ek notlar / kullanicinin iletisi
-        [StringLength(500, ErrorMessage = "Not en fazla 500 karakter olmalidir.")]
+        [StringLength(500, ErrorMessage = "Not en fazla 500 karakter olmalıdır.")]
         [Display(Name = "Not")]
         public string? Notes { get; set; }
 
-        [StringLength(120, ErrorMessage = "Ad Soyad en fazla 120 karakter olmalidir.")]
-        [Display(Name = "Odeme Ad Soyad")]
+        [StringLength(120, ErrorMessage = "Ad Soyad en fazla 120 karakter olmalıdır.")]
+        [Display(Name = "Ödeme Ad Soyad")]
         public string? PaymentFullName { get; set; }
 
         [Column(TypeName = "decimal(10,2)")]
@@ -46,7 +46,7 @@ namespace EventHub.Models
 
         public DateTime? RefundRequestedAt { get; set; }
 
-        [StringLength(500, ErrorMessage = "Iade notu en fazla 500 karakter olmalidir.")]
+        [StringLength(500, ErrorMessage = "İade notu en fazla 500 karakter olmalıdır.")]
         public string? RefundNote { get; set; }
 
         // Katilim dogrulandi mi? (Admin tarafindan etkinlik sonrasi isaretlenir)
@@ -73,13 +73,13 @@ namespace EventHub.Models
     /// </summary>
     public enum RegistrationStatus
     {
-        [Display(Name = "Onaylandi")]
+        [Display(Name = "Onaylandı")]
         Confirmed = 1,
 
         [Display(Name = "Beklemede")]
         Pending = 2,
 
-        [Display(Name = "Iptal Edildi")]
+        [Display(Name = "İptal Edildi")]
         Cancelled = 3
     }
 }
