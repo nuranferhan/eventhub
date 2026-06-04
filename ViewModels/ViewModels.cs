@@ -15,31 +15,31 @@ namespace EventHub.ViewModels
     public class RegisterViewModel
     {
         [Required(ErrorMessage = "Ad Soyad zorunludur.")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Ad Soyad 3 ile 100 karakter arasinda olmalidir.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Ad Soyad 3 ile 100 karakter arasında olmalıdır.")]
         [Display(Name = "Kullanıcı Adı")]
         public string FullName { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "E-posta adresi zorunludur.")]
-        [EmailAddress(ErrorMessage = "Gecerli bir e-posta adresi giriniz.")]
+        [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
         [Display(Name = "E-posta")]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Sifre zorunludur.")]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "Sifre en az 8 karakter olmalidir.")]
+        [Required(ErrorMessage = "Şifre zorunludur.")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Şifre en az 8 karakter olmalıdır.")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
-            ErrorMessage = "Sifre en az bir buyuk harf, bir kucuk harf, bir rakam ve bir ozel karakter icermelidir.")]
+            ErrorMessage = "Şifre en az bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter içermelidir.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Sifre")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Sifre tekrari zorunludur.")]
+        [Required(ErrorMessage = "Şifre tekrarı zorunludur.")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Sifreler eslesmemektedir.")]
-        [Display(Name = "Sifre Tekrari")]
+        [Compare("Password", ErrorMessage = "Şifreler eşleşmemektedir.")]
+        [Display(Name = "Şifre Tekrarı")]
         public string ConfirmPassword { get; set; } = string.Empty;
 
-        [StringLength(500, ErrorMessage = "Biyografi en fazla 500 karakter olmalidir.")]
-        [Display(Name = "Hakkimda")]
+        [StringLength(500, ErrorMessage = "Biyografi en fazla 500 karakter olmalıdır.")]
+        [Display(Name = "Hakkımda")]
         public string? Bio { get; set; }
     }
 
@@ -49,16 +49,16 @@ namespace EventHub.ViewModels
     public class LoginViewModel
     {
         [Required(ErrorMessage = "E-posta adresi zorunludur.")]
-        [EmailAddress(ErrorMessage = "Gecerli bir e-posta adresi giriniz.")]
+        [EmailAddress(ErrorMessage = "Geçerli bir e-posta adresi giriniz.")]
         [Display(Name = "E-posta")]
         public string Email { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Sifre zorunludur.")]
+        [Required(ErrorMessage = "Şifre zorunludur.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Sifre")]
+        [Display(Name = "Şifre")]
         public string Password { get; set; } = string.Empty;
 
-        [Display(Name = "Beni Hatirla")]
+        [Display(Name = "Beni Hatırla")]
         public bool RememberMe { get; set; } = false;
     }
 
@@ -153,22 +153,22 @@ namespace EventHub.ViewModels
         public string? Notes { get; set; }
 
         [Required(ErrorMessage = "Ad Soyad zorunludur.")]
-        [StringLength(120, MinimumLength = 3, ErrorMessage = "Ad Soyad 3 ile 120 karakter arasinda olmalidir.")]
+        [StringLength(120, MinimumLength = 3, ErrorMessage = "Ad Soyad 3 ile 120 karakter arasında olmalıdır.")]
         [Display(Name = "Ad Soyad")]
         public string PaymentFullName { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Kart numarasi zorunludur.")]
-        [RegularExpression(@"^[0-9\s]{16,23}$", ErrorMessage = "Gecerli bir kart numarasi giriniz.")]
-        [Display(Name = "Kart Numarasi")]
+        [Required(ErrorMessage = "Kart numarası zorunludur.")]
+        [RegularExpression(@"^[0-9\s]{16,23}$", ErrorMessage = "Geçerli bir kart numarası giriniz.")]
+        [Display(Name = "Kart Numarası")]
         public string CardNumber { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Son kullanma tarihi zorunludur.")]
-        [RegularExpression(@"^(0[1-9]|1[0-2])\/[0-9]{2}$", ErrorMessage = "AA/YY formatinda giriniz.")]
+        [RegularExpression(@"^(0[1-9]|1[0-2])\/[0-9]{2}$", ErrorMessage = "AA/YY formatında giriniz.")]
         [Display(Name = "Son Kullanma Tarihi")]
         public string ExpiryDate { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "CVV zorunludur.")]
-        [RegularExpression(@"^[0-9]{3,4}$", ErrorMessage = "Gecerli bir CVV giriniz.")]
+        [RegularExpression(@"^[0-9]{3,4}$", ErrorMessage = "Geçerli bir CVV giriniz.")]
         [Display(Name = "CVV")]
         public string Cvv { get; set; } = string.Empty;
     }
@@ -183,8 +183,8 @@ namespace EventHub.ViewModels
         public string? PaymentFullName { get; set; }
         public string? PaymentReference { get; set; }
 
-        [StringLength(500, ErrorMessage = "Iade notu en fazla 500 karakter olmalidir.")]
-        [Display(Name = "Iade Notu")]
+        [StringLength(500, ErrorMessage = "İade notu en fazla 500 karakter olmalıdır.")]
+        [Display(Name = "İade Notu")]
         public string? RefundNote { get; set; }
     }
 
@@ -195,58 +195,58 @@ namespace EventHub.ViewModels
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Etkinlik basligi zorunludur.")]
-        [StringLength(150, MinimumLength = 5, ErrorMessage = "Baslik 5 ile 150 karakter arasinda olmalidir.")]
-        [Display(Name = "Etkinlik Basligi")]
+        [Required(ErrorMessage = "Etkinlik başlığı zorunludur.")]
+        [StringLength(150, MinimumLength = 5, ErrorMessage = "Başlık 5 ile 150 karakter arasında olmalıdır.")]
+        [Display(Name = "Etkinlik Başlığı")]
         public string Title { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Aciklama zorunludur.")]
-        [StringLength(2000, MinimumLength = 20, ErrorMessage = "Aciklama en az 20 karakter olmalidir.")]
-        [Display(Name = "Aciklama")]
+        [Required(ErrorMessage = "Açıklama zorunludur.")]
+        [StringLength(2000, MinimumLength = 20, ErrorMessage = "Açıklama en az 20 karakter olmalıdır.")]
+        [Display(Name = "Açıklama")]
         public string Description { get; set; } = string.Empty;
 
-        [StringLength(300, ErrorMessage = "Ozet en fazla 300 karakter olmalidir.")]
-        [Display(Name = "Kisa Ozet")]
+        [StringLength(300, ErrorMessage = "Özet en fazla 300 karakter olmalıdır.")]
+        [Display(Name = "Kısa Özet")]
         public string? Summary { get; set; }
 
         [Required(ErrorMessage = "Etkinlik tarihi zorunludur.")]
-        [Display(Name = "Baslangic Tarihi ve Saati")]
+        [Display(Name = "Başlangıç Tarihi ve Saati")]
         public DateTime EventDate { get; set; } = DateTime.Now.AddDays(7);
 
-        [Display(Name = "Bitis Tarihi ve Saati")]
+        [Display(Name = "Bitiş Tarihi ve Saati")]
         public DateTime? EndDate { get; set; }
 
         [Required(ErrorMessage = "Konum zorunludur.")]
-        [StringLength(300, ErrorMessage = "Konum en fazla 300 karakter olmalidir.")]
+        [StringLength(300, ErrorMessage = "Konum en fazla 300 karakter olmalıdır.")]
         [Display(Name = "Konum / Adres")]
         public string Location { get; set; } = string.Empty;
 
-        [Url(ErrorMessage = "Gecerli bir URL giriniz.")]
-        [Display(Name = "Online Baglanti URL")]
+        [Url(ErrorMessage = "Geçerli bir URL giriniz.")]
+        [Display(Name = "Online Bağlantı URL")]
         public string? OnlineUrl { get; set; }
 
-        [Range(0, 10000, ErrorMessage = "Kontenjan 0 ile 10000 arasinda olmalidir.")]
-        [Display(Name = "Maksimum Katilimci (0 = sinir yok)")]
+        [Range(0, 10000, ErrorMessage = "Kontenjan 0 ile 10000 arasında olmalıdır.")]
+        [Display(Name = "Maksimum Katılımcı (0 = sınır yok)")]
         public int MaxCapacity { get; set; } = 0;
 
-        [Required(ErrorMessage = "Kategori secimi zorunludur.")]
+        [Required(ErrorMessage = "Kategori seçimi zorunludur.")]
         [Display(Name = "Kategori")]
         public EventCategory Category { get; set; }
 
         [Display(Name = "Durum")]
         public EventStatus Status { get; set; } = EventStatus.Draft;
 
-        [Display(Name = "Kapak Gorseli URL")]
+        [Display(Name = "Kapak Görseli URL")]
         public string? CoverImageUrl { get; set; }
 
-        [Display(Name = "Kapak Gorselini Yukle")]
+        [Display(Name = "Kapak Görselini Yükle")]
         public IFormFile? CoverImageFile { get; set; }
 
-        [Display(Name = "Ucretli Etkinlik")]
+        [Display(Name = "Ücretli Etkinlik")]
         public bool IsPaid { get; set; } = false;
 
-        [Range(0, 99999, ErrorMessage = "Gecerli bir ucret giriniz.")]
-        [Display(Name = "Ucret (TL)")]
+        [Range(0, 99999, ErrorMessage = "Geçerli bir ücret giriniz.")]
+        [Display(Name = "Ücret (TL)")]
         public decimal Price { get; set; } = 0;
     }
 
@@ -353,18 +353,18 @@ namespace EventHub.ViewModels
     /// </summary>
     public class ProfileEditViewModel
     {
-        [Required(ErrorMessage = "Kullanici adi zorunludur.")]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "Kullanici adi 3 ile 100 karakter arasinda olmalidir.")]
-        [Display(Name = "Kullanici Adi")]
+        [Required(ErrorMessage = "Kullanıcı adı zorunludur.")]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "Kullanıcı adı 3 ile 100 karakter arasında olmalıdır.")]
+        [Display(Name = "Kullanıcı Adı")]
         public string FullName { get; set; } = string.Empty;
 
-        [StringLength(500, ErrorMessage = "Biyografi en fazla 500 karakter olmalidir.")]
+        [StringLength(500, ErrorMessage = "Biyografi en fazla 500 karakter olmalıdır.")]
         [Display(Name = "Biyografi")]
         public string? Bio { get; set; }
 
         public string? ProfileImageUrl { get; set; }
 
-        [Display(Name = "Profil Gorselini Degistir")]
+        [Display(Name = "Profil Görselini Değiştir")]
         public IFormFile? ProfileImageFile { get; set; }
     }
 
@@ -373,23 +373,23 @@ namespace EventHub.ViewModels
     /// </summary>
     public class ChangePasswordViewModel
     {
-        [Required(ErrorMessage = "Mevcut sifre zorunludur.")]
+        [Required(ErrorMessage = "Mevcut şifre zorunludur.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Mevcut Sifre")]
+        [Display(Name = "Mevcut Şifre")]
         public string CurrentPassword { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Yeni sifre zorunludur.")]
-        [StringLength(100, MinimumLength = 8, ErrorMessage = "Yeni sifre en az 8 karakter olmalidir.")]
+        [Required(ErrorMessage = "Yeni şifre zorunludur.")]
+        [StringLength(100, MinimumLength = 8, ErrorMessage = "Yeni şifre en az 8 karakter olmalıdır.")]
         [RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$",
-            ErrorMessage = "Yeni sifre en az bir buyuk harf, bir kucuk harf, bir rakam ve bir ozel karakter icermelidir.")]
+            ErrorMessage = "Yeni şifre en az bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter içermelidir.")]
         [DataType(DataType.Password)]
-        [Display(Name = "Yeni Sifre")]
+        [Display(Name = "Yeni Şifre")]
         public string NewPassword { get; set; } = string.Empty;
 
-        [Required(ErrorMessage = "Sifre tekrari zorunludur.")]
+        [Required(ErrorMessage = "Şifre tekrarı zorunludur.")]
         [DataType(DataType.Password)]
-        [Compare("NewPassword", ErrorMessage = "Sifreler eslesmemektedir.")]
-        [Display(Name = "Yeni Sifre Tekrari")]
+        [Compare("NewPassword", ErrorMessage = "Şifreler eşleşmemektedir.")]
+        [Display(Name = "Yeni Şifre Tekrarı")]
         public string ConfirmPassword { get; set; } = string.Empty;
     }
 
