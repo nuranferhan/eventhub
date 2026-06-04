@@ -1,7 +1,7 @@
 @model EventHub.ViewModels.EventFormViewModel
 @using EventHub.Models
 @{
-    ViewData["Title"] = "Yeni Etkinlik Olustur";
+    ViewData["Title"] = "Yeni Etkinlik Oluştur";
 }
 
 <div class="page-header">
@@ -11,8 +11,8 @@
             <li><a asp-controller="Admin" asp-action="Events">Admin - Etkinlikler</a></li>
             <li>Yeni Etkinlik</li>
         </ul>
-        <h1 class="page-header-title">Yeni Etkinlik Olustur</h1>
-        <p class="page-header-subtitle">Tum alanlari eksiksiz doldurun ve etkinligi yayinlayin.</p>
+        <h1 class="page-header-title">Yeni Etkinlik Oluştur</h1>
+        <p class="page-header-subtitle">Tüm alanları eksiksiz doldurun ve etkinliği yayınlayın.</p>
     </div>
 </div>
 
@@ -35,14 +35,14 @@
                         <div class="form-group">
                             <label asp-for="Title" class="form-label-custom"></label>
                             <input asp-for="Title" class="form-control-custom"
-                                   placeholder="Etkinlik basligi giriniz..." />
+                                   placeholder="Etkinlik başlığı giriniz..." />
                             <span asp-validation-for="Title" class="field-validation-error"></span>
                         </div>
 
                         <div class="form-group">
                             <label asp-for="Summary" class="form-label-custom"></label>
                             <input asp-for="Summary" class="form-control-custom"
-                                   placeholder="Etkinlik listesinde gorunecek kisa tanim..." />
+                                   placeholder="Etkinlik listesinde görünecek kısa tanım..." />
                             <span asp-validation-for="Summary" class="field-validation-error"></span>
                         </div>
 
@@ -50,7 +50,7 @@
                             <label asp-for="Description" class="form-label-custom"></label>
                             <textarea asp-for="Description" class="form-control-custom"
                                       rows="7"
-                                      placeholder="Etkinlik hakkinda ayrintili bilgi veriniz. Katilimcilar ne ogrenecek, kimler katilmali vb."
+                                      placeholder="Etkinlik hakkında ayrıntılı bilgi veriniz. Katılımcılar ne öğrenecek, kimler katılmalı vb."
                                       style="resize:vertical;"></textarea>
                             <span asp-validation-for="Description" class="field-validation-error"></span>
                         </div>
@@ -61,7 +61,7 @@
                                     <label asp-for="Category" class="form-label-custom"></label>
                                     <select asp-for="Category" class="form-control-custom"
                                             asp-items="Html.GetEnumSelectList<EventCategory>()">
-                                        <option value="">-- Kategori Secin --</option>
+                                        <option value="">-- Kategori Seçin --</option>
                                     </select>
                                     <span asp-validation-for="Category" class="field-validation-error"></span>
                                 </div>
@@ -110,7 +110,7 @@
                         <div class="form-group">
                             <label asp-for="Location" class="form-label-custom"></label>
                             <input asp-for="Location" class="form-control-custom"
-                                   placeholder="Etkinlik adresi veya sehir..." />
+                                   placeholder="Etkinlik adresi veya şehir..." />
                             <span asp-validation-for="Location" class="field-validation-error"></span>
                         </div>
 
@@ -125,7 +125,7 @@
                     <div class="card-base mb-4 animate-on-scroll delay-200">
                         <h5 style="font-weight:700;color:var(--text-primary);margin-bottom:1.5rem;display:flex;align-items:center;gap:0.5rem;">
                             <span style="width:28px;height:28px;background:var(--gradient-brand);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:white;font-size:0.8rem;font-weight:800;flex-shrink:0;">3</span>
-                            Kontenjan ve Ucret
+                            Kontenjan ve Ücret
                         </h5>
 
                         <div class="row g-3">
@@ -134,18 +134,18 @@
                                     <label asp-for="MaxCapacity" class="form-label-custom"></label>
                                     <input asp-for="MaxCapacity" type="number" min="0"
                                            class="form-control-custom"
-                                           placeholder="0 girerseniz sinir olmaz" />
+                                           placeholder="0 girerseniz sınır olmaz" />
                                     <span asp-validation-for="MaxCapacity" class="field-validation-error"></span>
-                                    <small style="color:var(--text-muted);font-size:0.78rem;">0 = Sinir yok</small>
+                                    <small style="color:var(--text-muted);font-size:0.78rem;">0 = Sınır yok</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-0">
                                     <label asp-for="CoverImageUrl" class="form-label-custom"></label>
                                     <input asp-for="CoverImageUrl" class="form-control-custom"
-                                           placeholder="https://... gorsel URL (opsiyonel)" />
+                                           placeholder="https://... görsel URL (opsiyonel)" />
                                     <span asp-validation-for="CoverImageUrl" class="field-validation-error"></span>
-                                    <small style="color:var(--text-muted);font-size:0.78rem;">URL kullanabilir ya da asagidan dosya yukleyebilirsin.</small>
+                                    <small style="color:var(--text-muted);font-size:0.78rem;">URL kullanabilir ya da aşağıdan dosya yükleyebilirsiniz.</small>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -162,7 +162,7 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <div>
                                 <label asp-for="IsPaid" class="form-label-custom mb-0"></label>
-                                <div style="font-size:0.82rem;color:var(--text-muted);">Katilim icin ucret alinacak mi?</div>
+                                <div style="font-size:0.82rem;color:var(--text-muted);">Katılım için ücret alınacak mı?</div>
                             </div>
                             <div style="position:relative;">
                                 <input asp-for="IsPaid" type="checkbox" id="isPaidToggle"
@@ -192,10 +192,10 @@
 
                     <div class="d-flex gap-3 justify-content-end animate-on-scroll delay-300">
                         <a asp-controller="Admin" asp-action="Events" class="btn-ghost">
-                            <i class="bi bi-x-circle"></i> Vazgec
+                            <i class="bi bi-x-circle"></i> Vazgeç
                         </a>
                         <button type="submit" class="btn-brand">
-                            <i class="bi bi-check-circle"></i> Etkinligi Olustur
+                            <i class="bi bi-check-circle"></i> Etkinliği Oluştur
                         </button>
                     </div>
 
@@ -208,7 +208,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        // Ucret toggle icin gorsel geri bildirim
+        // Ücret toggle için görsel geri bildirim
         var isPaidCheck = document.getElementById('isPaidToggle');
         var toggleLabel = isPaidCheck ? isPaidCheck.nextElementSibling : null;
         if (isPaidCheck && toggleLabel) {
