@@ -1,14 +1,14 @@
 @{
-    ViewData["Title"] = "Hakkimizda";
+    ViewData["Title"] = "Hakkımızda";
 }
 
 <div class="page-header">
     <div class="container">
         <ul class="breadcrumb-custom">
             <li><a asp-controller="Home" asp-action="Index">Ana Sayfa</a></li>
-            <li>Hakkimizda</li>
+            <li>Hakkımızda</li>
         </ul>
-        <h1 class="page-header-title">Hakkimizda</h1>
+        <h1 class="page-header-title">Hakkımızda</h1>
         <p class="page-header-subtitle">EventHub platformunun hikayesi.</p>
     </div>
 </div>
@@ -24,16 +24,16 @@
                     Etkinlikleri Bir Araya Getiriyoruz
                 </h2>
                 <p style="color:var(--text-secondary);line-height:1.8;margin-bottom:1rem;">
-                    EventHub, etkinlik organizatorleri ile katilimcilari bir araya getiren kapsamli bir yonetim platformudur.
-                    Workshop'lardan konferanslara, seminerlerden networking etkinliklerine kadar her tur etkinligi kolayla yonetebilirsiniz.
+                    EventHub, etkinlik organizatörleri ile katılımcıları bir araya getiren kapsamlı bir yönetim platformudur.
+                    Workshop'lardan konferanslara, seminerlerden networking etkinliklerine kadar her tür etkinliği kolayca yönetebilirsiniz.
                 </p>
                 <p style="color:var(--text-secondary);line-height:1.8;">
-                    Platformumuz sayesinde etkinlik olusturma, kontenjan belirleme, katilimci yonetimi ve
-                    rol bazli yetkilendirme gibi tum ihtiyaclarinizi tek cercevede cozebilirsiniz.
+                    Platformumuz sayesinde etkinlik oluşturma, kontenjan belirleme, katılımcı yönetimi ve
+                    rol bazlı yetkilendirme gibi tüm ihtiyaçlarınızı tek çerçevede çözebilirsiniz.
                 </p>
                 <div class="mt-4">
                     <a asp-controller="Event" asp-action="Index" class="btn-brand">
-                        <i class="bi bi-calendar2-event"></i> Etkinliklere Goz At
+                        <i class="bi bi-calendar2-event"></i> Etkinliklere Göz At
                     </a>
                 </div>
             </div>
@@ -42,10 +42,10 @@
                     @{
                         var features = new[]
                         {
-                            new { Icon = "bi-calendar-plus", Title = "Kolay Yonetim", Desc = "Etkinlik olusturma ve yonetimi cok kolay." },
-                            new { Icon = "bi-shield-lock", Title = "Guvenli", Desc = "Role-based yetkilendirme sistemi." },
+                            new { Icon = "bi-calendar-plus", Title = "Kolay Yönetim", Desc = "Etkinlik oluşturma ve yönetimi çok kolay." },
+                            new { Icon = "bi-shield-lock", Title = "Güvenli", Desc = "Role-based yetkilendirme sistemi." },
                             new { Icon = "bi-phone", Title = "Responsive", Desc = "Her cihazda kusursuz deneyim." },
-                            new { Icon = "bi-people", Title = "Topluluk", Desc = "Buyuyen kullanici toplulugu." }
+                            new { Icon = "bi-people", Title = "Topluluk", Desc = "Büyüyen kullanıcı topluluğu." }
                         };
                     }
                     @foreach (var f in features)
