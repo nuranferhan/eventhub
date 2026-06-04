@@ -4,8 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EventHub.Models
 {
     /// <summary>
-    /// Etkinlik ana modeli. Her etkinlik bir organizator tarafindan olusturulur
-    /// ve katilimci kontenjanina sahiptir.
+    /// Etkinlik ana modeli. Her etkinlik bir organizatör tarafından oluşturulur
+    /// ve katılımcı kontenjanına sahiptir.
     /// </summary>
     public class Event
     {
@@ -13,21 +13,21 @@ namespace EventHub.Models
         [Key]
         public int Id { get; set; }
 
-        // Etkinlik basligi - zorunlu, maksimum 150 karakter
-        [Required(ErrorMessage = "Etkinlik basligi zorunludur.")]
-        [StringLength(150, MinimumLength = 5, ErrorMessage = "Baslik 5 ile 150 karakter arasinda olmalidir.")]
-        [Display(Name = "Etkinlik Basligi")]
+        // Etkinlik başlığı - zorunlu, maksimum 150 karakter
+        [Required(ErrorMessage = "Etkinlik başlığı zorunludur.")]
+        [StringLength(150, MinimumLength = 5, ErrorMessage = "Başlık 5 ile 150 karakter arasında olmalıdır.")]
+        [Display(Name = "Etkinlik Başlığı")]
         public string Title { get; set; } = string.Empty;
 
-        // Etkinlik detayli aciklamasi - zorunlu
-        [Required(ErrorMessage = "Etkinlik aciklamasi zorunludur.")]
-        [StringLength(2000, MinimumLength = 20, ErrorMessage = "Aciklama en az 20 karakter olmalidir.")]
-        [Display(Name = "Aciklama")]
+        // Etkinlik detaylı açıklaması - zorunlu
+        [Required(ErrorMessage = "Etkinlik açıklaması zorunludur.")]
+        [StringLength(2000, MinimumLength = 20, ErrorMessage = "Açıklama en az 20 karakter olmalıdır.")]
+        [Display(Name = "Açıklama")]
         public string Description { get; set; } = string.Empty;
 
-        // Kisa ozet - liste gorunumlerinde kullanilir
-        [StringLength(300, ErrorMessage = "Ozet en fazla 300 karakter olmalidir.")]
-        [Display(Name = "Kisa Ozet")]
+        // Kısa özet - liste görünümlerinde kullanılır
+        [StringLength(300, ErrorMessage = "Özet en fazla 300 karakter olmalıdır.")]
+        [Display(Name = "Kısa Özet")]
         public string? Summary { get; set; }
 
         // Etkinlik tarihi ve saati - zorunlu
@@ -35,74 +35,74 @@ namespace EventHub.Models
         [Display(Name = "Tarih ve Saat")]
         public DateTime EventDate { get; set; }
 
-        // Etkinlik bitis tarihi
-        [Display(Name = "Bitis Tarihi")]
+        // Etkinlik bitiş tarihi
+        [Display(Name = "Bitiş Tarihi")]
         public DateTime? EndDate { get; set; }
 
         // Etkinlik konumu / adresi
         [Required(ErrorMessage = "Konum bilgisi zorunludur.")]
-        [StringLength(300, ErrorMessage = "Konum en fazla 300 karakter olmalidir.")]
+        [StringLength(300, ErrorMessage = "Konum en fazla 300 karakter olmalıdır.")]
         [Display(Name = "Konum")]
         public string Location { get; set; } = string.Empty;
 
-        // Online etkinlik icin URL (opsiyonel)
-        [Url(ErrorMessage = "Gecerli bir URL giriniz.")]
-        [Display(Name = "Online Baglanti")]
+        // Online etkinlik için URL (opsiyonel)
+        [Url(ErrorMessage = "Geçerli bir URL giriniz.")]
+        [Display(Name = "Online Bağlantı")]
         public string? OnlineUrl { get; set; }
 
-        // Maksimum katilimci sayisi - 0 ise sinir yok
-        [Range(0, 10000, ErrorMessage = "Kontenjan 0 ile 10000 arasinda olmalidir.")]
-        [Display(Name = "Maksimum Katilimci")]
+        // Maksimum katılımcı sayısı - 0 ise sınır yok
+        [Range(0, 10000, ErrorMessage = "Kontenjan 0 ile 10000 arasında olmalıdır.")]
+        [Display(Name = "Maksimum Katılımcı")]
         public int MaxCapacity { get; set; } = 0;
 
         // Etkinlik kategorisi (Workshop, Konferans, Seminer vb.)
-        [Required(ErrorMessage = "Kategori secimi zorunludur.")]
+        [Required(ErrorMessage = "Kategori seçimi zorunludur.")]
         [Display(Name = "Kategori")]
         public EventCategory Category { get; set; }
 
-        // Etkinlik durumu (Yayin, Taslak, Iptal, Tamamlandi)
+        // Etkinlik durumu (Yayın, Taslak, İptal, Tamamlandı)
         [Display(Name = "Durum")]
         public EventStatus Status { get; set; } = EventStatus.Draft;
 
-        // Etkinlik kapak gorseli URL'i
-        [Display(Name = "Kapak Gorseli")]
+        // Etkinlik kapak görseli URL'i
+        [Display(Name = "Kapak Görseli")]
         public string? CoverImageUrl { get; set; }
 
-        // Ucretli mi, ucretsiz mi?
-        [Display(Name = "Ucretli Etkinlik")]
+        // Ücretli mi, ücretsiz mi?
+        [Display(Name = "Ücretli Etkinlik")]
         public bool IsPaid { get; set; } = false;
 
-        // Ucret miktari (ucretli ise)
-        [Range(0, 99999, ErrorMessage = "Ucret gecerli bir deger olmalidir.")]
+        // Ücret miktarı (ücretli ise)
+        [Range(0, 99999, ErrorMessage = "Ücret geçerli bir değer olmalıdır.")]
         [Column(TypeName = "decimal(10,2)")]
-        [Display(Name = "Ucret (TL)")]
+        [Display(Name = "Ücret (TL)")]
         public decimal Price { get; set; } = 0;
 
-        // Kayit olusturulma tarihi
+        // Kayıt oluşturulma tarihi
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        // Son guncelleme tarihi
+        // Son güncelleme tarihi
         public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-        // Yabanci anahtar: Etkinligi olusturan kullanici
+        // Yabancı anahtar: Etkinliği oluşturan kullanıcı
         public string CreatedByUserId { get; set; } = string.Empty;
 
-        // Navigasyon: Etkinligi olusturan kullanici nesnesi
+        // Navigasyon: Etkinliği oluşturan kullanıcı nesnesi
         [ForeignKey("CreatedByUserId")]
         public ApplicationUser? CreatedBy { get; set; }
 
-        // Navigasyon: Bu etkinlige yapilan kayitlar koleksiyonu
+        // Navigasyon: Bu etkinliğe yapılan kayıtlar koleksiyonu
         public ICollection<EventRegistration> Registrations { get; set; } = new List<EventRegistration>();
 
-        // Hesaplanan ozellik: Mevcut katilimci sayisi
+        // Hesaplanan özellik: Mevcut katılımcı sayısı
         [NotMapped]
         public int CurrentParticipantCount => Registrations.Count(r => r.Status == RegistrationStatus.Confirmed);
 
-        // Hesaplanan ozellik: Kontenjan dolu mu?
+        // Hesaplanan özellik: Kontenjan dolu mu?
         [NotMapped]
         public bool IsFullyBooked => MaxCapacity > 0 && CurrentParticipantCount >= MaxCapacity;
 
-        // Hesaplanan ozellik: Kalan kontenjan sayisi
+        // Hesaplanan özellik: Kalan kontenjan sayısı
         [NotMapped]
         public int RemainingCapacity => MaxCapacity == 0 ? int.MaxValue : MaxCapacity - CurrentParticipantCount;
     }
@@ -127,10 +127,10 @@ namespace EventHub.Models
         [Display(Name = "Hackathon")]
         Hackathon = 5,
 
-        [Display(Name = "Egitim")]
+        [Display(Name = "Eğitim")]
         Training = 6,
 
-        [Display(Name = "Diger")]
+        [Display(Name = "Diğer")]
         Other = 7,
 
         [Display(Name = "Konser")]
@@ -151,7 +151,7 @@ namespace EventHub.Models
         [Display(Name = "Sergi")]
         Exhibition = 13,
 
-        [Display(Name = "Seminer")]
+        [Display(Name = "Seminer Serisi")]
         SeminarSeries = 14
     }
 
@@ -163,13 +163,13 @@ namespace EventHub.Models
         [Display(Name = "Taslak")]
         Draft = 0,
 
-        [Display(Name = "Yayinda")]
+        [Display(Name = "Yayında")]
         Published = 1,
 
-        [Display(Name = "Iptal Edildi")]
+        [Display(Name = "İptal Edildi")]
         Cancelled = 2,
 
-        [Display(Name = "Tamamlandi")]
+        [Display(Name = "Tamamlandı")]
         Completed = 3
     }
 }
