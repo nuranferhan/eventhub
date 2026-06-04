@@ -1,10 +1,12 @@
-# EventHub - Etkinlik ve Workshop Yonetim Sistemi
+# EventHub - Etkinlik ve Workshop Yönetim Sistemi
 
-| ASP.NET Core 8 MVC
+| ASP.NET Core 8 MVC 
+
+**Canlı Önizleme:** [Site Linki](https://eventhub-6n0h.onrender.com)
 
 ---
 
-## Proje Ozeti
+## Proje Özeti
 
 EventHub, etkinlik organizatorleri ile katilimcilari bir araya getiren kapsamli bir yonetim platformudur.
 Kullanicilar etkinliklere kayit olabilir, adminler etkinlik olusturabilir ve katilimcilari yonetebilir.
