@@ -12,7 +12,7 @@
         EventCategory.Seminar => "Seminer",
         EventCategory.Networking => "Networking",
         EventCategory.Hackathon => "Hackathon",
-        EventCategory.Training => "Egitim",
+        EventCategory.Training => "Eğitim",
         EventCategory.Concert => "Konser",
         EventCategory.Cinema => "Sinema",
         EventCategory.Theater => "Tiyatro",
@@ -20,11 +20,10 @@
         EventCategory.Festival => "Festival",
         EventCategory.Exhibition => "Sergi",
         EventCategory.SeminarSeries => "Seminer Serisi",
-        _ => "Diger"
+        _ => "Diğer"
     };
 }
 
-<!-- Sayfa Basligi -->
 <div class="page-header">
     <div class="container">
         <ul class="breadcrumb-custom">
@@ -39,10 +38,8 @@
     <div class="container">
         <div class="row g-4">
 
-            <!-- Sol: Etkinlik Detaylari -->
             <div class="col-lg-8">
 
-                <!-- Kapak Gorseli -->
                 @if (!string.IsNullOrEmpty(Model.CoverImageUrl))
                 {
                     <div class="event-detail-hero animate-on-scroll">
@@ -76,20 +73,19 @@
                     </div>
                 }
 
-                <!-- Etkinlik Basligi ve Kategori -->
                 <div class="animate-on-scroll">
                     <div class="d-flex align-items-center gap-2 mb-2 flex-wrap">
                         <span class="event-card-category">@categoryDisplay</span>
                         @switch (Model.Status)
                         {
                             case EventStatus.Published:
-                                <span class="status-badge status-published">Yayinda</span>
+                                <span class="status-badge status-published">Yayında</span>
                                 break;
                             case EventStatus.Cancelled:
-                                <span class="status-badge status-cancelled">Iptal Edildi</span>
+                                <span class="status-badge status-cancelled">İptal Edildi</span>
                                 break;
                             case EventStatus.Completed:
-                                <span class="status-badge status-completed">Tamamlandi</span>
+                                <span class="status-badge status-completed">Tamamlandı</span>
                                 break;
                             case EventStatus.Draft:
                                 <span class="status-badge status-draft">Taslak</span>
@@ -102,7 +98,7 @@
                         @if (Model.IsRegistered)
                         {
                             <span class="badge-registered">
-                                <i class="bi bi-check-circle-fill"></i> Kayitlisiniz
+                                <i class="bi bi-check-circle-fill"></i> Kayıtlısınız
                             </span>
                         }
                     </div>
@@ -119,20 +115,18 @@
                     }
                 </div>
 
-                <!-- Aciklama -->
                 <div class="card-base animate-on-scroll" style="margin-bottom:1.5rem;">
                     <h4 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary);">
-                        <i class="bi bi-file-text" style="color:var(--color-brand);"></i> Etkinlik Hakkinda
+                        <i class="bi bi-file-text" style="color:var(--color-brand);"></i> Etkinlik Hakkında
                     </h4>
                     <div style="font-size:0.95rem;line-height:1.8;color:var(--text-secondary);">
                         @Html.Raw(Model.Description.Replace("\n", "<br/>"))
                     </div>
                 </div>
 
-                <!-- Organizator Bilgisi -->
                 <div class="card-base animate-on-scroll" style="margin-bottom:1.5rem;">
                     <h4 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary);">
-                        <i class="bi bi-person-badge" style="color:var(--color-brand);"></i> Organizator
+                        <i class="bi bi-person-badge" style="color:var(--color-brand);"></i> Organizatör
                     </h4>
                     <div class="d-flex align-items-center gap-3">
                         <div style="width:48px;height:48px;border-radius:50%;background:var(--gradient-brand);display:flex;align-items:center;justify-content:center;color:white;font-size:1.1rem;font-weight:700;flex-shrink:0;">
@@ -149,14 +143,13 @@
                     </div>
                 </div>
 
-                <!-- Katilimci Listesi (Admin/Organizator) -->
                 @if (Model.Participants.Any())
                 {
                     <div class="card-base animate-on-scroll">
                         <h4 style="font-size:1rem;font-weight:700;margin-bottom:1rem;color:var(--text-primary);">
                             <i class="bi bi-people" style="color:var(--color-brand);"></i>
-                            Katilimcilar
-                            <span style="font-size:0.82rem;color:var(--text-muted);font-weight:500;margin-left:0.5rem;">(@Model.Participants.Count kisi)</span>
+                            Katılımcılar
+                            <span style="font-size:0.82rem;color:var(--text-muted);font-weight:500;margin-left:0.5rem;">(@Model.Participants.Count kişi)</span>
                         </h4>
                         <div style="overflow-x:auto;">
                             <table class="table-custom">
@@ -165,8 +158,8 @@
                                         <th>#</th>
                                         <th>Ad Soyad</th>
                                         <th>E-posta</th>
-                                        <th>Kayit Tarihi</th>
-                                        <th>Katilim</th>
+                                        <th>Kayıt Tarihi</th>
+                                        <th>Katılım</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -182,7 +175,7 @@
                                             <td>
                                                 @if (p.AttendanceConfirmed)
                                                 {
-                                                    <span class="badge-registered"><i class="bi bi-check-circle-fill"></i> Katildi</span>
+                                                    <span class="badge-registered"><i class="bi bi-check-circle-fill"></i> Katıldı</span>
                                                 }
                                                 else
                                                 {
@@ -199,31 +192,28 @@
 
             </div>
 
-            <!-- Sag: Bilgi ve Kayit Karti -->
             <div class="col-lg-4">
                 <div class="event-info-card animate-on-scroll">
 
-                    <!-- Ucret Bilgisi -->
                     <div class="d-flex align-items-center justify-content-between mb-4">
                         @if (Model.IsPaid)
                         {
                             <div>
-                                <div style="font-size:0.78rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Katilim Ucreti</div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Katılım Ücreti</div>
                                 <div style="font-size:2rem;font-weight:800;color:var(--color-brand);font-family:'Fraunces',serif;">@Model.Price.ToString("N0") TL</div>
                             </div>
                         }
                         else
                         {
                             <div>
-                                <div style="font-size:0.78rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Katilim Ucreti</div>
-                                <div style="font-size:1.5rem;font-weight:800;color:var(--color-success);">Ucretsiz</div>
+                                <div style="font-size:0.78rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;">Katılım Ücreti</div>
+                                <div style="font-size:1.5rem;font-weight:800;color:var(--color-success);">Ücretsiz</div>
                             </div>
                         }
                     </div>
 
                     <div class="divider"></div>
 
-                    <!-- Tarih -->
                     <div class="event-info-row">
                         <div class="event-info-icon"><i class="bi bi-calendar3"></i></div>
                         <div>
@@ -240,7 +230,6 @@
                         </div>
                     </div>
 
-                    <!-- Konum -->
                     <div class="event-info-row">
                         <div class="event-info-icon"><i class="bi bi-geo-alt"></i></div>
                         <div>
@@ -249,19 +238,18 @@
                         </div>
                     </div>
 
-                    <!-- Online URL -->
                     @if (!string.IsNullOrEmpty(Model.OnlineUrl))
                     {
                         <div class="event-info-row">
                             <div class="event-info-icon"><i class="bi bi-camera-video"></i></div>
                             <div style="flex:1;min-width:0;">
-                                <div class="event-info-label">Online Baglanti</div>
+                                <div class="event-info-label">Online Bağlantı</div>
                                 @if (Model.CanViewOnlineUrl)
                                 {
                                     <div class="d-flex align-items-center gap-2">
                                         <a href="@Model.OnlineUrl" target="_blank"
                                            style="font-size:0.82rem;color:var(--color-brand);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:150px;display:inline-block;">
-                                            Baglantiyi Ac
+                                            Bağlantıyı Aç
                                         </a>
                                         <button onclick="copyToClipboard('@Model.OnlineUrl')"
                                                 class="btn-ghost btn-sm" type="button"
@@ -273,19 +261,18 @@
                                 else
                                 {
                                     <div style="font-size:0.82rem;color:var(--text-muted);line-height:1.6;">
-                                        Online baglanti yalnizca kayitli katilimcilara aciktir.
-                                        <strong>Kaydiniz onaylandiginda</strong> bu alan aktif hale gelir.
+                                        Online bağlantı yalnızca kayıtlı katılımcılara açıktır.
+                                        <strong>Kaydınız onaylandığında</strong> bu alan aktif hale gelir.
                                     </div>
                                 }
                             </div>
                         </div>
                     }
 
-                    <!-- Kontenjan -->
                     <div class="event-info-row">
                         <div class="event-info-icon"><i class="bi bi-people"></i></div>
                         <div style="flex:1;">
-                            <div class="event-info-label">Katilimci</div>
+                            <div class="event-info-label">Katılımcı</div>
                             @if (Model.MaxCapacity > 0)
                             {
                                 <div class="event-info-value">
@@ -296,7 +283,7 @@
                                     }
                                     else
                                     {
-                                        <span style="color:var(--color-success);font-size:0.78rem;"> (@Model.RemainingCapacity yer kaldi)</span>
+                                        <span style="color:var(--color-success);font-size:0.78rem;"> (@Model.RemainingCapacity yer kaldı)</span>
                                     }
                                 </div>
                                 <div class="capacity-bar" style="margin-top:0.5rem;">
@@ -306,12 +293,11 @@
                             }
                             else
                             {
-                                <div class="event-info-value">Sinir Yok</div>
+                                <div class="event-info-value">Sınır Yok</div>
                             }
                         </div>
                     </div>
 
-                    <!-- Kategori -->
                     <div class="event-info-row">
                         <div class="event-info-icon"><i class="bi bi-tag"></i></div>
                         <div>
@@ -320,7 +306,6 @@
                         </div>
                     </div>
 
-                    <!-- Kayit / Bekleme Listesi / Iptal / QR -->
                     <div class="mt-4">
                         @if (User.Identity?.IsAuthenticated == true)
                         {
@@ -339,8 +324,8 @@
                                             <input type="hidden" name="registrationId" value="@Model.RegistrationId" />
                                             <input type="hidden" name="eventId" value="@Model.Id" />
                                             <button type="submit" class="btn-danger-soft w-100"
-                                                    data-confirm="Bekleme listesi kaydinizi iptal etmek istediginizden emin misiniz?">
-                                                <i class="bi bi-x-circle"></i> Bekleme Listesinden Cik
+                                                    data-confirm="Bekleme listesi kaydınızı iptal etmek istediğinizden emin misiniz?">
+                                                <i class="bi bi-x-circle"></i> Bekleme Listesinden Çık
                                             </button>
                                         </form>
                                     }
@@ -349,14 +334,14 @@
                                 {
                                     <div class="alert-custom alert-success mb-3" style="font-size:0.85rem;">
                                         <span class="alert-icon"><i class="bi bi-check-circle-fill"></i></span>
-                                        Bu etkinlige kayitlisiniz.
+                                        Bu etkinliğe kayıtlısınız.
                                     </div>
 
                                     @if (Model.IsPaid && Model.PaidAmount.HasValue)
                                     {
                                         <div class="card-base mb-3" style="padding:1rem;">
                                             <div style="font-weight:700;color:var(--text-primary);margin-bottom:0.6rem;">
-                                                <i class="bi bi-credit-card" style="color:var(--color-brand);"></i> Odeme Ozeti
+                                                <i class="bi bi-credit-card" style="color:var(--color-brand);"></i> Ödeme Özeti
                                             </div>
                                             <div style="display:grid;gap:0.45rem;font-size:0.84rem;color:var(--text-secondary);">
                                                 <div><strong>Ad Soyad:</strong> @(Model.PaymentFullName ?? "-")</div>
@@ -397,8 +382,8 @@
                                             <input type="hidden" name="registrationId" value="@Model.RegistrationId" />
                                             <input type="hidden" name="eventId" value="@Model.Id" />
                                             <button type="submit" class="btn-danger-soft w-100"
-                                                    data-confirm="Etkinlik kaydinizi iptal etmek istediginizden emin misiniz?">
-                                                <i class="bi bi-x-circle"></i> Kaydimi Iptal Et
+                                                    data-confirm="Etkinlik kaydınızı iptal etmek istediğinizden emin misiniz?">
+                                                <i class="bi bi-x-circle"></i> Kaydımı İptal Et
                                             </button>
                                         </form>
                                     }
@@ -412,17 +397,17 @@
                                     <div class="form-group">
                                         <label class="form-label-custom">Not (Opsiyonel)</label>
                                         <textarea name="notes" class="form-control-custom"
-                                                  placeholder="Organizatore iletmek istediginiz not..."
+                                                  placeholder="Organizatöre iletmek istediğiniz not..."
                                                   rows="2" style="resize:none;"></textarea>
                                     </div>
                                     <button type="submit" class="btn-brand w-100">
                                         @if (Model.IsPaid)
                                         {
-                                            <i class="bi bi-credit-card"></i> <span>Odeme Yap ve Kayit Ol</span>
+                                            <i class="bi bi-credit-card"></i> <span>Ödeme Yap ve Kayıt Ol</span>
                                         }
                                         else
                                         {
-                                            <i class="bi bi-calendar-check"></i> <span>Kayit Ol</span>
+                                            <i class="bi bi-calendar-check"></i> <span>Kayıt Ol</span>
                                         }
                                     </button>
                                 </form>
@@ -431,7 +416,7 @@
                             {
                                 <div class="alert-custom alert-warning">
                                     <span class="alert-icon"><i class="bi bi-exclamation-triangle"></i></span>
-                                    Kontenjan dolu. Bos yer acilirsa bildirim gelecektir.
+                                    Kontenjan dolu. Boş yer açılırsa bildirim gelecektir.
                                 </div>
                                 <form asp-action="JoinWaitlist" asp-controller="Event" method="post" data-loading="true" class="mt-3">
                                     @Html.AntiForgeryToken()
@@ -439,11 +424,11 @@
                                     <div class="form-group">
                                         <label class="form-label-custom">Not (Opsiyonel)</label>
                                         <textarea name="notes" class="form-control-custom"
-                                                  placeholder="Bekleme listesi icin eklemek istediginiz not..."
+                                                  placeholder="Bekleme listesi için eklemek istediğiniz not..."
                                                   rows="2" style="resize:none;"></textarea>
                                     </div>
                                     <button type="submit" class="btn-outline-brand w-100">
-                                        <i class="bi bi-hourglass-split"></i> Bekleme Listesine Katil
+                                        <i class="bi bi-hourglass-split"></i> Bekleme Listesine Katıl
                                     </button>
                                 </form>
                             }
@@ -451,41 +436,39 @@
                             {
                                 <div class="alert-custom alert-info">
                                     <span class="alert-icon"><i class="bi bi-info-circle"></i></span>
-                                    Bu etkinlik gerceklesti.
+                                    Bu etkinlik gerçekleşti.
                                 </div>
                             }
                         }
                         else
                         {
-                            <!-- Giris Yapilmamis -->
                             <a asp-controller="Account" asp-action="Login"
                                asp-route-returnUrl="@Context.Request.Path"
                                class="btn-brand w-100">
                                 <i class="bi bi-box-arrow-in-right"></i>
-                                Giris Yap ve Kayit Ol
+                                Giriş Yap ve Kayıt Ol
                             </a>
                             <div style="text-align:center;margin-top:0.75rem;font-size:0.82rem;color:var(--text-muted);">
-                                Hesabiniz yok mu?
-                                <a asp-controller="Account" asp-action="Register">Kayit Ol</a>
+                                Hesabınız yok mu?
+                                <a asp-controller="Account" asp-action="Register">Kayıt Ol</a>
                             </div>
                         }
                     </div>
 
-                    <!-- Admin Eylemleri -->
                     @if (User.IsInRole("Admin"))
                     {
                         <div class="divider"></div>
                         <div style="font-size:0.78rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:0.75rem;">
-                            Admin Islemleri
+                            Admin İşlemleri
                         </div>
                         <div class="d-flex gap-2 flex-wrap">
                             <a asp-controller="Event" asp-action="Edit" asp-route-id="@Model.Id"
                                class="btn-ghost btn-sm">
-                                <i class="bi bi-pencil"></i> Duzenle
+                                <i class="bi bi-pencil"></i> Düzenle
                             </a>
                             <a asp-controller="Admin" asp-action="Participants" asp-route-eventId="@Model.Id"
                                class="btn-ghost btn-sm">
-                                <i class="bi bi-people"></i> Katilimcilar
+                                <i class="bi bi-people"></i> Katılımcılar
                             </a>
                         </div>
                     }
