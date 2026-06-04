@@ -1,6 +1,6 @@
 @model EventHub.ViewModels.RegisterViewModel
 @{
-    ViewData["Title"] = "Kayit Ol";
+    ViewData["Title"] = "Kayıt Ol";
     Layout = "_Layout";
 }
 
@@ -16,10 +16,10 @@
                             <i class="bi bi-person-plus-fill" style="color:white;"></i>
                         </div>
                         <h1 style="font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;margin-bottom:0.3rem;color:var(--text-primary);">
-                            Hesap Olustur
+                            Hesap Oluştur
                         </h1>
                         <p style="color:var(--text-muted);font-size:0.9rem;">
-                            Etkinliklere katilmak icin kayit olun
+                            Etkinliklere katılmak için kayıt olun
                         </p>
                     </div>
 
@@ -80,7 +80,7 @@
                             <div style="position:relative;">
                                 <i class="bi bi-lock-fill" style="position:absolute;left:0.9rem;top:50%;transform:translateY(-50%);color:var(--text-muted);"></i>
                                 <input asp-for="ConfirmPassword" class="form-control-custom" type="password"
-                                       placeholder="Sifrenizi tekrar girin"
+                                       placeholder="Şifrenizi tekrar girin"
                                        style="padding-left:2.5rem;"
                                        id="confirmPassReg" />
                                 <button type="button" onclick="togglePassConfirm()"
@@ -94,7 +94,7 @@
                         <div class="form-group">
                             <label asp-for="Bio" class="form-label-custom"></label>
                             <textarea asp-for="Bio" class="form-control-custom" rows="2"
-                                      placeholder="Kendinizi kisaca tanitin... (opsiyonel)"
+                                      placeholder="Kendinizi kısaca tanıtın... (opsiyonel)"
                                       style="resize:none;"></textarea>
                             <span asp-validation-for="Bio" class="field-validation-error"></span>
                         </div>
@@ -103,14 +103,14 @@
                             <input type="checkbox" id="termsCheck" required
                                    style="width:16px;height:16px;accent-color:var(--color-brand);margin-top:2px;flex-shrink:0;" />
                             <label for="termsCheck" style="font-size:0.85rem;color:var(--text-secondary);cursor:pointer;">
-                                <a href="#" style="font-weight:600;">Kullanim Kosullarini</a> ve
-                                <a href="#" style="font-weight:600;">Gizlilik Politikasini</a> okudum, kabul ediyorum.
+                                <a href="#" style="font-weight:600;">Kullanım Koşullarını</a> ve
+                                <a href="#" style="font-weight:600;">Gizlilik Politikasını</a> okudum, kabul ediyorum.
                             </label>
                         </div>
 
                         <button type="submit" class="btn-brand w-100" style="justify-content:center;">
                             <i class="bi bi-person-check"></i>
-                            Hesap Olustur
+                            Hesap Oluştur
                         </button>
 
                     </form>
@@ -118,9 +118,9 @@
                     <div class="divider"></div>
 
                     <p style="text-align:center;font-size:0.88rem;color:var(--text-muted);margin:0;">
-                        Zaten hesabiniz var mi?
+                        Zaten hesabınız var mı?
                         <a asp-controller="Account" asp-action="Login" style="font-weight:600;">
-                            Giris Yapin
+                            Giriş Yapın
                         </a>
                     </p>
 
@@ -133,7 +133,7 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>
-        // Sifre goster/gizle - passwordReg
+        // Şifre göster/gizle - passwordReg
         function togglePassReg() {
             var input = document.getElementById('passwordReg');
             var icon = document.getElementById('eyeReg');
@@ -146,7 +146,7 @@
             }
         }
 
-        // Sifre goster/gizle - confirmPassReg
+        // Şifre göster/gizle - confirmPassReg
         function togglePassConfirm() {
             var input = document.getElementById('confirmPassReg');
             var icon = document.getElementById('eyeConfirm');
@@ -159,8 +159,8 @@
             }
         }
 
-        // Sifre guc gostergesi
-        // Not: Regex icindeki ozel karakterler icin JavaScript string kullanildi
+        // Şifre güç göstergesi
+        // Not: Regex içindeki özel karakterler için JavaScript string kullanıldı
         var passInput = document.getElementById('passwordReg');
         var strengthBar = document.getElementById('strengthBar');
         var strengthFill = document.getElementById('strengthFill');
@@ -185,13 +185,13 @@
                 if (reDigit.test(val)) score++;
                 if (reSpecial.test(val)) score++;
 
-                var labels = ['Zayif', 'Orta', 'Iyi', 'Guclu'];
+                var labels = ['Zayıf', 'Orta', 'İyi', 'Güçlü'];
                 var colors = ['#e74c3c', '#f39c12', '#3498db', '#27ae60'];
                 var widths = ['25%', '50%', '75%', '100%'];
 
                 strengthFill.style.width = widths[score - 1] || '10%';
                 strengthFill.style.background = colors[score - 1] || '#e74c3c';
-                strengthText.textContent = 'Sifre Gucu: ' + (labels[score - 1] || 'Cok Zayif');
+                strengthText.textContent = 'Şifre Gücü: ' + (labels[score - 1] || 'Çok Zayıf');
                 strengthText.style.color = colors[score - 1] || '#e74c3c';
             });
         }
