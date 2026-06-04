@@ -1,7 +1,7 @@
 @model List<EventHub.ViewModels.EventListItemViewModel>
 @using EventHub.Models
 @{
-    ViewData["Title"] = "Etkinlik Yonetimi";
+    ViewData["Title"] = "Etkinlik Yönetimi";
 }
 
 <div class="page-header">
@@ -11,8 +11,8 @@
             <li><a asp-controller="Admin" asp-action="Index">Admin</a></li>
             <li>Etkinlikler</li>
         </ul>
-        <h1 class="page-header-title">Etkinlik Yonetimi</h1>
-        <p class="page-header-subtitle">Tum etkinlikleri goruntuleyin, yayinlayin veya silin.</p>
+        <h1 class="page-header-title">Etkinlik Yönetimi</h1>
+        <p class="page-header-subtitle">Tüm etkinlikleri görüntüleyin, yayınlayın veya silin.</p>
     </div>
 </div>
 
@@ -22,7 +22,7 @@
             <!-- Sidebar -->
             <div class="col-lg-2 col-md-3">
                 <div class="admin-sidebar animate-on-scroll">
-                    <div class="admin-sidebar-title">Yonetim</div>
+                    <div class="admin-sidebar-title">Yönetim</div>
                     <a asp-controller="Admin" asp-action="Index" class="admin-nav-item">
                         <i class="bi bi-speedometer2"></i> Dashboard
                     </a>
@@ -30,7 +30,7 @@
                         <i class="bi bi-calendar-event"></i> Etkinlikler
                     </a>
                     <a asp-controller="Admin" asp-action="Users" class="admin-nav-item">
-                        <i class="bi bi-people"></i> Kullanicilar
+                        <i class="bi bi-people"></i> Kullanıcılar
                     </a>
                     <div style="height:1px;background:var(--border-color);margin:0.75rem 0;"></div>
                     <a asp-controller="Event" asp-action="Create" class="admin-nav-item" style="color:var(--color-brand)!important;">
@@ -65,13 +65,13 @@
                             <table class="table-custom">
                                 <thead>
                                     <tr>
-                                        <th>Gorsel</th>
+                                        <th>Görsel</th>
                                         <th>Etkinlik</th>
                                         <th>Tarih</th>
                                         <th>Kategori</th>
                                         <th>Durum</th>
-                                        <th>Katilimci</th>
-                                        <th>Islemler</th>
+                                        <th>Katılımcı</th>
+                                        <th>İşlemler</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -110,16 +110,16 @@
                                                 @switch (ev.Status)
                                                 {
                                                     case EventStatus.Published:
-                                                        <span class="status-badge status-published">Yayinda</span>
+                                                        <span class="status-badge status-published">Yayında</span>
                                                         break;
                                                     case EventStatus.Draft:
                                                         <span class="status-badge status-draft">Taslak</span>
                                                         break;
                                                     case EventStatus.Cancelled:
-                                                        <span class="status-badge status-cancelled">Iptal</span>
+                                                        <span class="status-badge status-cancelled">İptal</span>
                                                         break;
                                                     default:
-                                                        <span class="status-badge status-completed">Tamamlandi</span>
+                                                        <span class="status-badge status-completed">Tamamlandı</span>
                                                         break;
                                                 }
                                             </td>
@@ -133,11 +133,11 @@
                                             <td>
                                                 <div class="d-flex gap-1 flex-wrap">
                                                     <a asp-controller="Event" asp-action="Detail" asp-route-id="@ev.Id"
-                                                       class="btn-ghost btn-sm" title="Goruntule">
+                                                       class="btn-ghost btn-sm" title="Görüntüle">
                                                         <i class="bi bi-eye"></i>
                                                     </a>
                                                     <a asp-controller="Event" asp-action="Edit" asp-route-id="@ev.Id"
-                                                       class="btn-ghost btn-sm" title="Duzenle">
+                                                       class="btn-ghost btn-sm" title="Düzenle">
                                                         <i class="bi bi-pencil"></i>
                                                     </a>
                                                     <!-- Yayinla/Taslaga Al Toggler -->
@@ -147,14 +147,14 @@
                                                         <input type="hidden" name="id" value="@ev.Id" />
                                                         <button type="submit"
                                                                 class="btn-ghost btn-sm"
-                                                                title="@(ev.Status == EventStatus.Published ? "Taslaga Al" : "Yayinla")"
+                                                                title="@(ev.Status == EventStatus.Published ? "Taslağa Al" : "Yayınla")"
                                                                 style="color:@(ev.Status == EventStatus.Published ? "var(--color-warning)" : "var(--color-success)");">
                                                             <i class="bi bi-@(ev.Status == EventStatus.Published ? "pause-circle" : "play-circle")"></i>
                                                         </button>
                                                     </form>
                                                     <!-- Katilimci Listesi -->
                                                     <a asp-controller="Admin" asp-action="Participants" asp-route-eventId="@ev.Id"
-                                                       class="btn-ghost btn-sm" title="Katilimcilar">
+                                                       class="btn-ghost btn-sm" title="Katılımcılar">
                                                         <i class="bi bi-people"></i>
                                                     </a>
                                                     <!-- Silme -->
@@ -164,7 +164,7 @@
                                                         <input type="hidden" name="id" value="@ev.Id" />
                                                         <button type="submit"
                                                                 class="btn-danger-soft btn-sm"
-                                                                data-confirm="'@ev.Title' etkinligini silmek istediginizden emin misiniz? Bu islem geri alinamaz."
+                                                                data-confirm="'@ev.Title' etkinliğini silmek istediğinizden emin misiniz? Bu işlem geri alınamaz."
                                                                 title="Sil">
                                                             <i class="bi bi-trash"></i>
                                                         </button>
@@ -181,10 +181,10 @@
                     {
                         <div class="empty-state">
                             <div class="empty-state-icon"><i class="bi bi-inbox"></i></div>
-                            <h3 class="empty-state-title">Etkinlik Bulunamadi</h3>
-                            <p>Henuz etkinlik olusturulmamis.</p>
+                            <h3 class="empty-state-title">Etkinlik Bulunamadı</h3>
+                            <p>Henüz etkinlik oluşturulmamış.</p>
                             <a asp-controller="Event" asp-action="Create" class="btn-brand mt-3">
-                                <i class="bi bi-plus-circle"></i> Ilk Etkinligi Olustur
+                                <i class="bi bi-plus-circle"></i> İlk Etkinliği Oluştur
                             </a>
                         </div>
                     }
